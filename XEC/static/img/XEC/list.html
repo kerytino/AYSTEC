@@ -1,0 +1,62 @@
+{% extends 'XEC/base.html' %}
+
+{% block content %}
+
+
+
+<div class="container">
+
+
+<div class="row">
+
+    <div class="col-12">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-auto">
+                <h1>Requerimientos</h1>
+            </div>
+            <div class="col-auto">
+                <a href="{% url 'CreateForm' %}" class="btn btn-primary btn-sm text-right">Crear</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">  <table class="content-table">
+    <thead>
+    <tr>
+        <th>Fecha</th>
+        <th>Operador</th>
+        <th>Huesped</th>
+        <th>Habitacion</th>
+        <th>Requerimiento</th>
+        <th>Estancia</th>
+        <th>Empleado</th>
+        <th>Departamento</th>
+        <th>Observaciones</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for cliente in client %}
+    <tr>
+        <td>{{ cliente.create_at }}</td>
+        <td>{{ user.first_name }} {{ user.last_name }}</td>
+        <td>{{ cliente.name }} {{ cliente.last_name }}</td>
+        <td>{{ cliente.room }}</td>
+        <td>{{ cliente.client_requirements }}</td>
+        <td>{{ cliente.stay_in }} / {{ list.stay_out }}</td>
+        <td>{{ cliente.empleado }}</td>
+        <td>{{ cliente.departamento }}</td>
+        <td>{{ cliente.comentarios }}</td>
+    </tr>
+
+    {% endfor %}
+    </tbody>
+
+    </table></div>
+
+</div>
+
+
+</div>
+{% endblock content %}

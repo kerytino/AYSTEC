@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>
+          {% block title %}LOGIN | AYS{% endblock %}
+      </title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+   <style>
+     :root{
+       --font-color:#222;
+       --backgroundColor:#C89B87;
+       --fontSize:12px;
+       --fontFamily:Arial, Helvetica, sans-serif;
+     }
+      .form-group, .form-control{
+        font-size: var(--fontSize);
+      }
+      .form-control{
+         border-color: var(--font-color);
+         border-radius: 0%;
+      }
+      .form-control:active{
+          outline-style:none ;
+      }
+
+      .submit{
+        width: 200px;
+        padding: 10px;
+        border-radius: 50px;
+        border-style: none;
+        background-color: var(--backgroundColor);
+
+        font-size: var(--fontSize);
+        font-family: var(--fontFamily);
+      }
+   </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row" style="background-color: #C89B87;">
+        <div class="col-12 "  style="background-color: #f4f4e4;border-bottom-left-radius: 40px 15px;border-bottom-right-radius: 50px 20px;">
+            <div class="row justify-content-center align-items-center justify-content-md-start ">
+                <div class="col-auto">
+                    <h1 class="display-6 text-center" style="font-size: 30px; font-family: 'Times New Roman', Times, serif; color: #C89B87; padding: 0%; margin: 0%; line-height: 27px;">The Excellence <br> Collection</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-12" style="height: 300px;">
+          <!-- Imagen del login -->
+            <div class="row" >
+                <div class="col-auto" >
+
+                    <img src="{% static 'img/login/login.png' %}">
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>
+      <div class="row justify-content-center p-4">
+        <div class="col-12 col-sm-7 col-md-3">
+            <form style="font-family: Arial, Helvetica, sans-serif;" method="post">
+                {% csrf_token %}
+
+
+                <div class="form-group">
+                  <label for="id_username">Usuario</label>
+                  <input type="username" name="username" class="form-control"  id="id_username" required>
+                </div>
+                <div class="form-group mt-4">
+                  <label for="id_password">Contraseña</label>
+                  <input type="password" name="password" class="form-control"  id="id_password" required>
+                </div>
+                <div class="row justify-content-center align-items-center mt-4">
+                   <div class="col-auto">
+                    <button type="submit" class="submit">Iniciar Sesion</button>
+                   </div>
+                </div>
+                <div class="row justify-content-center align-items-center  mt-3">
+                    <div class="col-auto">
+                        <a href="" style="text-decoration: underline; color: #222; font-size: 12px;">Olvidaste tu Contraseña?</a>
+                    </div>
+                </div>
+              </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
