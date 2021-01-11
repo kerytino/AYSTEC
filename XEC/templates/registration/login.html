@@ -66,11 +66,13 @@
       </div>
       <div class="row justify-content-center p-4">
         <div class="col-12 col-sm-7 col-md-3">
+
             <form style="font-family: Arial, Helvetica, sans-serif;" method="post">
                 {% csrf_token %}
 
 
                 <div class="form-group">
+
                   <label for="id_username">Usuario</label>
                   <input type="username" name="username" class="form-control"  id="id_username" required>
                 </div>
@@ -78,6 +80,11 @@
                   <label for="id_password">Contraseña</label>
                   <input type="password" name="password" class="form-control"  id="id_password" required>
                 </div>
+
+                {% if form.errors %}
+                    <p>Usuario o Contrasena incorrecta</p>
+                {% endif %}
+
                 <div class="row justify-content-center align-items-center mt-4">
                    <div class="col-auto">
                     <button type="submit" class="submit">Iniciar Sesion</button>
@@ -87,6 +94,7 @@
                     <div class="col-auto">
                         <a href="" style="text-decoration: underline; color: #222; font-size: 12px;">Olvidaste tu Contraseña?</a>
                     </div>
+
                 </div>
               </form>
         </div>

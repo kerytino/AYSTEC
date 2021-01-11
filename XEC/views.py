@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, HttpResponse, redirect
 from .forms import UsersLoginForm
@@ -15,9 +16,8 @@ def Login_page(request):
         password = form.cleaned_data.get('password')
 
         user = authenticate(username=username, password=password)
-
         login(request, user)
-        return redirect("/")
+        return redirect("home")
 
     context = {'form': form,
                'title': 'login'}
